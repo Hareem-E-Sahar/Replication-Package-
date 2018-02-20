@@ -1,0 +1,56 @@
+rm(list=ls(all=TRUE))
+library(ggplot2)
+
+setwd("C:/Users/AbdulAli/Desktop/3rdSemester/Thesis-II/MSR2017/Data Visualization/All")
+
+Metrics = read.csv("data.csv")
+
+versions = c(1:128)
+
+testCases = c(rep("T",128))
+
+cbo_values = c(Metrics$CBO)
+dit_values = c(Metrics$DIT)
+lcom_values = c(Metrics$LCOM)
+noc_values = c(Metrics$NOC)
+rfc_values = c(Metrics$RFC)
+wmc_values = c(Metrics$WMC)
+
+CBO = data.frame(testCases, versions, cbo_values)
+DIT = data.frame(testCases, versions, dit_values)
+LCOM = data.frame(testCases, versions, lcom_values)
+NOC = data.frame(testCases, versions, noc_values)
+RFC = data.frame(testCases, versions, rfc_values)
+WMC = data.frame(testCases, versions, wmc_values)
+
+TestCases = testCases
+
+cboPlot <- ggplot(data=CBO, aes(x = factor(CBO$versions), y = CBO$cbo_values,  linetype = TestCases)) + xlab("Versions") + ylab("CBO") + theme(axis.text.x = element_blank(), legend.position="none")
+
+cboPlot <- cboPlot + geom_line(aes(group = factor(TestCases)), size=0.8) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+ditPlot <- ggplot(data=DIT, aes(x = factor(DIT$versions), y = DIT$dit_values,  linetype = TestCases)) + xlab("Versions") + ylab("DIT") + theme(axis.text.x = element_blank(), legend.position="none")
+
+ditPlot <- ditPlot + geom_line(aes(group = factor(TestCases)), size=0.8) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+lcomPlot <- ggplot(data=LCOM, aes(x = factor(LCOM$versions), y = LCOM$lcom_values,  linetype = TestCases)) + xlab("Versions") + ylab("LCOM") + theme(axis.text.x = element_blank(), legend.position="none")
+
+lcomPlot <- lcomPlot + geom_line(aes(group = factor(TestCases)), size=0.8) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+nocPlot <- ggplot(data=NOC, aes(x = factor(NOC$versions), y = NOC$noc_values,  linetype = TestCases)) + xlab("Versions") + ylab("NOC") + theme(axis.text.x = element_blank(), legend.position="none")
+
+nocPlot <- nocPlot + geom_line(aes(group = factor(TestCases)), size=0.8) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+rfcPlot <- ggplot(data=RFC, aes(x = factor(RFC$versions), y = RFC$rfc_values,  linetype = TestCases)) + xlab("Versions") + ylab("RFC") + theme(axis.text.x = element_blank(), legend.position="none")
+
+rfcPlot <- rfcPlot + geom_line(aes(group = factor(TestCases)), size=0.8) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+wmcPlot <- ggplot(data=WMC, aes(x = factor(WMC$versions), y = WMC$wmc_values,  linetype = TestCases)) + xlab("Versions") + ylab("WMC") + theme(axis.text.x = element_blank(), legend.position="none")
+
+wmcPlot <- wmcPlot + geom_line(aes(group = factor(TestCases)), size=0.8) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))

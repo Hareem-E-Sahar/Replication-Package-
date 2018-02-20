@@ -1,0 +1,54 @@
+rm(list=ls(all=TRUE))
+library(ggplot2)
+
+setwd("C:/Users/AbdulAli/Desktop/3rdSemester/Thesis-II/MSR2017/Data Visualization/All")
+
+MOOD = read.csv("data.csv")
+
+versions = c(1:128)
+
+testCases = c(rep("T",128))
+
+AHF_values = c(MOOD$AHF)
+AIF_values = c(MOOD$AIF)
+CF_values = c(MOOD$CF)
+MHF_values = c(MOOD$MHF)
+MIF_values = c(MOOD$MIF)
+PF_values = c(MOOD$PF)
+
+AHF = data.frame(versions, AHF_values)
+AIF = data.frame(versions, AIF_values)
+CF = data.frame(versions, CF_values)
+MHF = data.frame(versions, MHF_values)
+MIF = data.frame(versions, MIF_values)
+PF = data.frame(versions, PF_values)
+
+AHF_plot <- ggplot(data=AHF, aes(x = factor(AHF$versions), y = AHF$AHF_values, group=1)) + xlab("Versions") + ylab("AHF") + theme(axis.text.x = element_blank(), legend.position="none")
+
+AHF_plot <- AHF_plot + geom_line()+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+AIF_plot <- ggplot(data=AIF, aes(x = factor(AIF$versions), y = AIF$AIF_values, group=1)) + xlab("Versions") + ylab("AIF") + theme(axis.text.x = element_blank(), legend.position="none")
+
+AIF_plot <- AIF_plot + geom_line()+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+CF_plot <- ggplot(data=CF, aes(x = factor(CF$versions), y = CF$CF_values, group=1)) + xlab("Versions") + ylab("CF") + theme(axis.text.x = element_blank(), legend.position="none")
+
+CF_plot <- CF_plot + geom_line()+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+MHF_plot <- ggplot(data=MHF, aes(x = factor(MHF$versions), y = MHF$MHF_values, group=1)) + xlab("Versions") + ylab("MHF") + theme(axis.text.x = element_blank(), legend.position="none")
+
+MHF_plot <- MHF_plot + geom_line()+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+MIF_plot <- ggplot(data=MIF, aes(x = factor(MIF$versions), y = MIF$MIF_values, group=1)) + xlab("Versions") + ylab("MIF") + theme(axis.text.x = element_blank(), legend.position="none")
+
+MIF_plot <- MIF_plot + geom_line()+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+PF_plot <- ggplot(data=PF, aes(x = factor(PF$versions), y = PF$PF_values, group=1)) + xlab("Versions") + ylab("PF") + theme(axis.text.x = element_blank(), legend.position="none")
+
+PF_plot <- PF_plot + geom_line()+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))

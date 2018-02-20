@@ -1,0 +1,17 @@
+ALLTC1<-read.csv("C:/Users/HP/Desktop/AbdulAli/Calculation/TC1DataAllVersions.csv")
+boxplot(ALLTC1,ylim=c(0,1000),las=2, names = c("2.1.0","2.2.0","2.2.1","2.2.2","2.2.3","2.2.4","2.2.5","2.3.1","2.4.0","2.4.1","2.5.0","2.5.1","2.5.2","2.5.3","2.5.4","2.5.5","2.6.0","2.6.2","2.6.3","2.7.0","2.7.1","2.7.2","2.7.3"),xlab="QKSMS Versions",ylab="Energy Consumption")
+
+ALLTC2<-read.csv("C:/Users/HP/Desktop/AbdulAli/Calculation/TC2DataAllVersions.csv")
+boxplot(ALLTC2,ylim=c(0,1000),las=2, names = c("2.1.0","2.2.0","2.2.1","2.2.2","2.2.3","2.2.4","2.2.5","2.3.1","2.4.0","2.4.1","2.5.0","2.5.1","2.5.2","2.5.3","2.5.4","2.5.5","2.6.0","2.6.2","2.6.3","2.7.0","2.7.1","2.7.2","2.7.3"),xlab="QKSMS Versions",ylab="Energy Consumption")
+
+ALLTC3<-read.csv("C:/Users/HP/Desktop/AbdulAli/Calculation/TC3DataAllVersions.csv")
+boxplot(ALLTC3,ylim=c(0,1000),las=2, names = c("2.1.0","2.2.0","2.2.1","2.2.2","2.2.3","2.2.4","2.2.5","2.3.1","2.4.0","2.4.1","2.5.0","2.5.1","2.5.2","2.5.3","2.5.4","2.5.5","2.6.0","2.6.2","2.6.3","2.7.0","2.7.1","2.7.2","2.7.3"),xlab="QKSMS Versions",ylab="Energy Consumption")
+
+ALLTC4<-read.csv("C:/Users/HP/Desktop/AbdulAli/Calculation/TC4DataAllVersions.csv")
+boxplot(ALLTC4,ylim=c(0,1000),las=2, names = c("2.1.0","2.2.0","2.2.1","2.2.2","2.2.3","2.2.4","2.2.5","2.3.1","2.4.0","2.4.1","2.5.0","2.5.1","2.5.2","2.5.3","2.5.4","2.5.5","2.6.0","2.6.2","2.6.3","2.7.0","2.7.1","2.7.2","2.7.3"),xlab="QKSMS Versions",ylab="Energy Consumption")
+
+ALLTC5<-read.csv("C:/Users/HP/Desktop/AbdulAli/Calculation/TC5DataAllVersions.csv")
+boxplot(ALLTC5,ylim=c(0,1000),las=2, names = c("2.1.0","2.2.0","2.2.1","2.2.2","2.2.3","2.2.4","2.2.5","2.3.1","2.4.0","2.4.1","2.5.0","2.5.1","2.5.2","2.5.3","2.5.4","2.5.5","2.6.0","2.6.2","2.6.3","2.7.0","2.7.1","2.7.2","2.7.3"),xlab="QKSMS Versions",ylab="Energy Consumption")
+
+power<-read.csv("C:/Users/HP/Desktop/AbdulAli/Calculation/TotalPower.csv")
+boxplot(power$TC1,power$TC2,power$TC3,power$TC4,power$TC5,main="Comparison of Mean Energy Consumption of Test Cases", xlab="Test Cases",ylab="Energy Consumption of QKSMS",outline = FALSE)

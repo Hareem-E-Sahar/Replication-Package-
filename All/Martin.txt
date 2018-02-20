@@ -1,0 +1,49 @@
+rm(list=ls(all=TRUE))
+library(ggplot2)
+
+setwd("C:/Users/AbdulAli/Desktop/3rdSemester/Thesis-II/MSR2017/Data Visualization/All")
+
+Metrics = read.csv("data.csv")
+
+versions = c(1:128)
+
+testCases = c(rep("T",128))
+
+A_values = c(Metrics$A)
+Ca_values = c(Metrics$Ca)
+Ce_values = c(Metrics$Ce)
+D_values = c(Metrics$D)
+I_values = c(Metrics$I)
+
+A = data.frame(testCases, versions, A_values)
+Ca = data.frame(testCases, versions, Ca_values)
+Ce = data.frame(testCases, versions, Ce_values)
+D = data.frame(testCases, versions, D_values)
+I = data.frame(testCases, versions, I_values)
+
+TestCases = testCases
+
+aPlot <- ggplot(data=A, aes(x = factor(A$versions), y = A$A_values,  linetype = TestCases)) + xlab("Versions") + ylab("A") + theme(axis.text.x = element_blank(), legend.position="none")
+
+aPlot <- aPlot + geom_line(aes(group = factor(TestCases)), size=0.8) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+caPlot <- ggplot(data=Ca, aes(x = factor(Ca$versions), y = Ca$Ca_values,  linetype = TestCases)) + xlab("Versions") + ylab("Ca") + theme(axis.text.x = element_blank(), legend.position="none")
+
+caPlot <- caPlot + geom_line(aes(group = factor(TestCases)), size=0.8)+ theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+cePlot <- ggplot(data=Ce, aes(x = factor(Ce$versions), y = Ce$Ce_values,  linetype = TestCases)) + xlab("Versions") + ylab("Ce") + theme(axis.text.x = element_blank(), legend.position="none")
+
+cePlot <- cePlot + geom_line(aes(group = factor(TestCases)), size=0.8) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+dPlot <- ggplot(data=D, aes(x = factor(D$versions), y = D$D_values,  linetype = TestCases)) + xlab("Versions") + ylab("D") + theme(axis.text.x = element_blank(), legend.position="none")
+
+dPlot <- dPlot + geom_line(aes(group = factor(TestCases)), size=0.8) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
+
+iPlot <- ggplot(data=I, aes(x = factor(I$versions), y = I$I_values,  linetype = TestCases)) + xlab("Versions") + ylab("I") + theme(axis.text.x = element_blank(), legend.position="none")
+
+iPlot <- iPlot + geom_line(aes(group = factor(TestCases)), size=0.8) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"))
